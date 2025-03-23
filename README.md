@@ -32,10 +32,10 @@ sudo docker network create traefiknet
 ```
 
 3. Navigate to the folder of the service you want to run. (Usually start with traefik)
-    a. If needed, create a .env file with any secrets or config.
-    b. Run the docker compose command to start the container in the background:
+    1. If needed, create a .env file with any secrets or config.
+    1. Run the docker compose command to start the container in the background:
         ```bash
         sudo docker compose up -d
         ```
-    c. Repeate for any other services.
+    3. Repeate for any other services.
 
