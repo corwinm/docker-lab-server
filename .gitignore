@@ -1,0 +1,6 @@
+# Environment config
+.env
+
+# Docker
+volumes/
+

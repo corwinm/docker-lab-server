@@ -1,0 +1,37 @@
+services:
+  traefik:
+    image: "traefik:v3.3"
+    container_name: "traefik"
+    command:
+      - --log.level=DEBUG
+      - --api.insecure=true
+      - --providers.docker=true
+      - --providers.docker.exposedbydefault=false
+      - --entrypoints.web.address=:80
+      - --entrypoints.websecure.address=:443
+        # - --certificatesresolvers.letsencrypt.acme.email=${EMAIL}
+      - --certificatesresolvers.letsencrypt.acme.storage=acme/acme.json
+      - --certificatesresolvers.letsencrypt.acme.tlschallenge=true
+      - --entryPoints.web.http.redirections.entryPoint.to=websecure
+      - --entryPoints.web.http.redirections.entryPoint.scheme=https
+      - --entryPoints.web.http.redirections.entrypoint.permanent=true
+      - --certificatesresolvers.letsencrypt.acme.caserver=https://acme-v02.api.letsencrypt.org/directory
+      - --certificatesresolvers.dnsresolver.acme.dnschallenge.provider=cloudflare
+      - --certificatesresolvers.dnsresolver.acme.dnschallenge.delaybeforecheck=0
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock:ro
+      - ./volumes/traefik/acme:/acme
+      - ./volumes/traefik/logs:/logs
+    ports:
+      - 80:80
+      - 443:443
+      - 8080:8080
+    environment:
+      - CF_API_EMAIL=${CF_API_EMAIL}
+      - CF_DNS_API_TOKEN=${CF_DNS_API_TOKEN}
+
+networks:
+  default:
+    external: true
+    name: traefiknet
+
