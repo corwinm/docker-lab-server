@@ -13,12 +13,13 @@ These are the services currently configured and running on this server.
 - Traefik - Reverse proxy and tls provider.
 - Portainer - Dashboard to view and manage running containers.
 - LiteLLM - LLM Proxy Server.
+- Watchtower - Automated container updates
 
 ## Planned Additions
 
 These are the services I plan to add to this server or ideas for services to add.
 
-- Watchtower - Automatic updates for running containers
+- Watchtower Notifications - Enable Discord notifications
 - Grafana, Prometheus, cAdvisor, node_exporter - Monitoring system
 - OpenWeb-UI - LLM Chat Client (Currently running as an LXC but could be migrated here)
 
