@@ -9,12 +9,11 @@ services:
       - --providers.docker.exposedbydefault=false
       - --entrypoints.web.address=:80
       - --entrypoints.websecure.address=:443
-      - --certificatesresolvers.letsencrypt.acme.storage=acme/acme.json
-      - --certificatesresolvers.letsencrypt.acme.tlschallenge=true
       - --entryPoints.web.http.redirections.entryPoint.to=websecure
       - --entryPoints.web.http.redirections.entryPoint.scheme=https
       - --entryPoints.web.http.redirections.entrypoint.permanent=true
-      - --certificatesresolvers.letsencrypt.acme.caserver=https://acme-v02.api.letsencrypt.org/directory
+      - --certificatesresolvers.dnsresolver.acme.storage=./acme/acme.json
+      # - --certificatesresolvers.dnsresolver.acme.caserver=https://acme-staging-v02.api.letsencrypt.org/directory
       - --certificatesresolvers.dnsresolver.acme.dnschallenge.provider=cloudflare
       - --certificatesresolvers.dnsresolver.acme.dnschallenge.delaybeforecheck=0
     volumes:
