@@ -10,8 +10,8 @@ services:
       - "traefik.enable=true"
       - "traefik.http.routers.open-webui.rule=Host(`home.chat.${DOMAIN}`)"
       - "traefik.http.routers.open-webui.entrypoints=websecure"
-      - "traefik.http.services.open-webui.loadbalancer.server.port=3000"
-      - "traefik.http.routers.open-webui.service=litellm"
+      - "traefik.http.services.open-webui.loadbalancer.server.port=8080"
+      - "traefik.http.routers.open-webui.service=open-webui"
       - "traefik.http.routers.open-webui.tls.certresolver=dnsresolver"
 
 volumes:
