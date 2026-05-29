@@ -15,6 +15,7 @@ These are the services currently configured and running on this server.
 - LiteLLM - LLM Proxy Server.
 - OpenWeb-UI - LLM Chat Client
 - Watchtower - Automated container updates
+- ExcaliDash - Self-hosted dashboard and organizer for Excalidraw drawings.
 
 ## Planned Additions
 
@@ -33,10 +34,10 @@ sudo docker network create traefiknet
 ```
 
 3. Navigate to the folder of the service you want to run. (Usually start with traefik)
-    1. If needed, create a .env file with any secrets or config.
+    1. If needed, create a .env file with any secrets or config. Some services include a `.env.example` you can copy.
     1. Run the docker compose command to start the container in the background:
         ```bash
         sudo docker compose up -d
         ```
-    3. Repeate for any other services.
+    3. Repeat for any other services.
 
