@@ -16,13 +16,15 @@ These are the services currently configured and running on this server.
 - OpenWeb-UI - LLM Chat Client
 - Watchtower - Automated container updates
 - ExcaliDash - Self-hosted dashboard and organizer for Excalidraw drawings.
+- Node Exporter and cAdvisor - Host and container metrics collected by the
+  separate observability Pi.
 
 ## Planned Additions
 
 These are the services I plan to add to this server or ideas for services to add.
 
 - Watchtower Notifications - Enable Discord notifications
-- Grafana, Prometheus, cAdvisor, node_exporter - Monitoring system
+- Additional service-specific metrics and alerts
 
 ## Setup
 
@@ -40,4 +42,8 @@ sudo docker network create traefiknet
         sudo docker compose up -d
         ```
     3. Repeat for any other services.
+
+The `monitoring` project publishes Node Exporter on port `9100` and cAdvisor
+on port `8081`. These listeners are intended only for the trusted home LAN;
+do not route them through Traefik or expose them to the Internet.
 
