@@ -9,7 +9,8 @@ services:
       - --path.rootfs=/host
       - --collector.filesystem.mount-points-exclude=^/(dev|proc|sys|host|etc)($$|/)
     volumes:
-      - /:/host:ro,rslave
+      # Snap Docker rejects bind-propagation flags because / is private.
+      - /:/host:ro
 
   cadvisor:
     image: ghcr.io/google/cadvisor:v0.60.5
