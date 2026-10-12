@@ -14,8 +14,7 @@ These are the services currently configured and running on this server.
 - Portainer - Dashboard to view and manage running containers.
 - LiteLLM - LLM Proxy Server.
 - OpenWeb-UI - LLM Chat Client
-- Watchtower - Automated container updates
-- ExcaliDash - Self-hosted dashboard and organizer for Excalidraw drawings.
+- WUD - Discord update notifications; automatic updates limited to cAdvisor and Node Exporter.
 - Node Exporter and cAdvisor - Host and container metrics collected by the
   separate observability Pi.
 
@@ -23,7 +22,6 @@ These are the services currently configured and running on this server.
 
 These are the services I plan to add to this server or ideas for services to add.
 
-- Watchtower Notifications - Enable Discord notifications
 - Additional service-specific metrics and alerts
 
 ## Setup

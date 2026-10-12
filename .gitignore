@@ -7,3 +7,6 @@ volumes/
 # macOS
 .DS_Store
 
+# WUD runtime and automatic Compose backups
+wud/store/
+*.back

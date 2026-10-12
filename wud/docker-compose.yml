@@ -1,0 +1,77 @@
+services:
+  socket-proxy:
+    image: lscr.io/linuxserver/socket-proxy:3.4.6-r0-ls101@sha256:362cadf55b3c7920189347d0f4d60b389e2f80e929581bf10793f2371aab41e5
+    restart: unless-stopped
+    environment:
+      CONTAINERS: "1"
+      IMAGES: "1"
+      INFO: "1"
+      EVENTS: "1"
+      VERSION: "1"
+      PING: "1"
+      POST: "1"
+      ALLOW_START: "0"
+      ALLOW_STOP: "0"
+      ALLOW_RESTARTS: "0"
+      NETWORKS: "1"
+      VOLUMES: "0"
+      EXEC: "0"
+      AUTH: "0"
+      SECRETS: "0"
+      SERVICES: "0"
+      TASKS: "0"
+      NODES: "0"
+      SWARM: "0"
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock:ro
+    networks:
+      - docker-observer
+    labels:
+      wud.watch: "false"
+
+  wud:
+    image: getwud/wud:9.3.0@sha256:58b1d93ab3b752ef83125b39d014dde8fadbed5be0cf6fbdee9ffa8d2ca72b32
+    restart: unless-stopped
+    depends_on:
+      - socket-proxy
+    ports:
+      - "127.0.0.1:3001:3000"
+    env_file:
+      - .env
+    environment:
+      TZ: America/Los_Angeles
+      WUD_WATCHER_VM_HOST: socket-proxy
+      WUD_WATCHER_VM_PORT: "2375"
+      WUD_WATCHER_VM_CRON: "0 * * * *"
+      WUD_WATCHER_VM_WATCHALL: "false"
+      WUD_WATCHER_VM_WATCHATSTART: "true"
+      WUD_WATCHER_VM_WATCHDIGESTDEFAULT: "true"
+      WUD_WATCHER_VM_EXCLUDE: "^(excalidash-.*|watchtower-watchtower-1)$"
+      WUD_SERVER_FEATURE_DELETE: "false"
+      WUD_TRIGGER_DOCKERCOMPOSE_EXPORTERS_INCLUDEBYDEFAULT: "false"
+      WUD_TRIGGER_DOCKERCOMPOSE_EXPORTERS_AUTO: "true"
+      WUD_TRIGGER_DOCKERCOMPOSE_EXPORTERS_MODE: "batch"
+      WUD_TRIGGER_DOCKERCOMPOSE_EXPORTERS_BACKUP: "true"
+      WUD_TRIGGER_DOCKERCOMPOSE_EXPORTERS_ROLLBACK: "true"
+      WUD_TRIGGER_DOCKERCOMPOSE_EXPORTERS_ROLLBACKWINDOW: "180000"
+      WUD_TRIGGER_DOCKERCOMPOSE_EXPORTERS_ROLLBACKINTERVAL: "5000"
+      WUD_TRIGGER_DOCKERCOMPOSE_EXPORTERS_PRUNE: "false"
+      WUD_TRIGGER_DOCKERCOMPOSE_EXPORTERS_FILE: "/stacks/monitoring/docker-compose.yml"
+      WUD_TRIGGER_DISCORD_HOME_MODE: batch
+      WUD_TRIGGER_DISCORD_HOME_ONCE: "true"
+      WUD_TRIGGER_DISCORD_HOME_AUTO: "true"
+      WUD_TRIGGER_DISCORD_HOME_BOTUSERNAME: WUD
+      WUD_TRIGGER_DISCORD_HOME_CARDLABEL: Docker VM — exporter auto-updates
+    volumes:
+      - ./store:/store
+      - ../monitoring:/stacks/monitoring
+    networks:
+      - docker-observer
+      - egress
+    labels:
+      wud.watch: "false"
+
+networks:
+  docker-observer:
+    internal: true
+  egress: {}

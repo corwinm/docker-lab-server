@@ -3,8 +3,17 @@ services:
     image: prom/node-exporter:v1.12.1
     container_name: node_exporter
     restart: unless-stopped
+    labels:
+      wud.trigger.include: discord.home,dockercompose.exporters
+      wud.tag.include: ^v?\d+\.\d+\.\d+$
     network_mode: host
     pid: host
+    healthcheck:
+      test: [CMD-SHELL, "wget -q -O /dev/null http://127.0.0.1:9100/metrics"]
+      interval: 15s
+      timeout: 5s
+      retries: 3
+      start_period: 10s
     command:
       - --path.rootfs=/host
       - --collector.filesystem.mount-points-exclude=^/(dev|proc|sys|host|etc)($$|/)
@@ -13,9 +22,12 @@ services:
       - /var/lib/snapd/hostfs:/host:ro
 
   cadvisor:
-    image: ghcr.io/google/cadvisor:v0.60.5
+    image: ghcr.io/google/cadvisor:v0.60.6
     container_name: cadvisor
     restart: unless-stopped
+    labels:
+      wud.trigger.include: discord.home,dockercompose.exporters
+      wud.tag.include: ^v?\d+\.\d+\.\d+$
     privileged: true
     devices:
       - /dev/kmsg:/dev/kmsg
