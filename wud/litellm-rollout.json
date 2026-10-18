@@ -1,0 +1,150 @@
+{
+  "app": {
+    "id": "3a07bf3f5fa857e27b695a012d62c27b5c1d8fc8286959dd3067054a5a55ef46",
+    "image": "sha256:2858d054494686e122537948b33a4073d3dffd8ec3202c63e9f046637a791eef",
+    "status": "running",
+    "health": "healthy"
+  },
+  "smoke": {
+    "version": "1.106.0",
+    "/health/readiness": 200,
+    "/health/liveliness": 200,
+    "/v1/models": 200,
+    "model_count": 111,
+    "unauthenticated_models_status": 401
+  },
+  "external_tls_smoke": {
+    "/health/readiness": "TLS certificate expired",
+    "/health/liveliness": "TLS certificate expired",
+    "/v1/models": "TLS certificate expired"
+  },
+  "associations": {
+    "cadvisor": [
+      "discord.home",
+      "dockercompose.exporters"
+    ],
+    "litellm-db-1": [
+      "discord.home"
+    ],
+    "litellm-litellm-1": [
+      "discord.home",
+      "dockercompose.litellm"
+    ],
+    "litellm-prometheus-1": [
+      "discord.home"
+    ],
+    "node_exporter": [
+      "discord.home",
+      "dockercompose.exporters"
+    ],
+    "open-webui-openwebui-1": [
+      "discord.home"
+    ],
+    "portainer-portainer-1": [
+      "discord.home"
+    ],
+    "traefik": [
+      "discord.home"
+    ]
+  },
+  "monitored_count": 8,
+  "unapproved_containers_unchanged": {
+    "cadvisor": true,
+    "wud-socket-proxy-1": true,
+    "node_exporter": true,
+    "watchtower-watchtower-1": true,
+    "excalidash-excalidash-frontend-1": true,
+    "excalidash-excalidash-backend-1": true,
+    "traefik": true,
+    "open-webui-openwebui-1": true,
+    "litellm-db-1": true,
+    "litellm-prometheus-1": true,
+    "portainer-portainer-1": true
+  },
+  "db": {
+    "id": "1d1b32a3f9f976809c30960fabadaa34403686bac3fe67c9faad72f667e0257e",
+    "image": "sha256:188ac51266eb2476c69f7a145ea50290e3b8d81285a3386197704d8ad677ba5a",
+    "status": "running",
+    "health": "healthy"
+  },
+  "post_migration_tables": 98,
+  "post_migration_rows": 371,
+  "mcp_server_rows": 0,
+  "stdio_mcp_applicable": false,
+  "fragment": "# Only this app image fragment is writable by WUD; DB and configuration stay outside.\nservices:\n  litellm:\n    image: ghcr.io/berriai/litellm:main-stable@sha256:032817a17e58103834385125db8be1bdb20a5acb12c3cbf540b6705e1f6e2706\n",
+  "pre_update_backup": {
+    "backup": "/var/backups/litellm/20261018T173803Z",
+    "dump_bytes": 184662,
+    "sha256": "16e7bf58a69104dfd4f3a77412b03e6c84c7e552f05e5c5b7094701d9786472f",
+    "tables": 58,
+    "rows": 257,
+    "restore_verified": true,
+    "app_image": "sha256:3b3f99817e8708fc5cb440ab3c020e710bf3f69ef603645322fd47995d4b3835",
+    "db_image": "sha256:188ac51266eb2476c69f7a145ea50290e3b8d81285a3386197704d8ad677ba5a",
+    "production_db_id": "1d1b32a3f9f976809c30960fabadaa34403686bac3fe67c9faad72f667e0257e"
+  },
+  "standalone_gate_backup": {
+    "backup": "/var/backups/litellm/20261018T173648Z",
+    "dump_bytes": 184662,
+    "sha256": "a12de5584ba2241bc19ce20a40c48c9ce8207eb2e4323cb6045a1f1350d55048",
+    "tables": 58,
+    "rows": 257,
+    "restore_verified": true,
+    "app_image": "sha256:3b3f99817e8708fc5cb440ab3c020e710bf3f69ef603645322fd47995d4b3835",
+    "db_image": "sha256:188ac51266eb2476c69f7a145ea50290e3b8d81285a3386197704d8ad677ba5a",
+    "production_db_id": "1d1b32a3f9f976809c30960fabadaa34403686bac3fe67c9faad72f667e0257e"
+  },
+  "gate_negative_statuses": {
+    "wrong_auth": 403,
+    "wrong_path": 403,
+    "wrong_target": 403
+  },
+  "runtime_triggers": {
+    "dockercompose.exporters": {
+      "includebydefault": false,
+      "rollback": true,
+      "rollbackwindow": 180000,
+      "auto": true,
+      "backup": true,
+      "prune": false,
+      "file": "/stacks/monitoring/docker-compose.yml"
+    },
+    "dockercompose.litellm": {
+      "hooks": [
+        {
+          "type": "trigger",
+          "trigger": "http.litellmbackup",
+          "timeout": 510000,
+          "phase": "pre",
+          "target": "self"
+        }
+      ],
+      "backup": true,
+      "rollbackwindow": 300000,
+      "auto": true,
+      "rollback": true,
+      "includebydefault": false,
+      "file": "/stacks/litellm-app/docker-compose.yml",
+      "prune": false
+    },
+    "http.litellmbackup": {
+      "auto": false,
+      "includebydefault": false
+    }
+  },
+  "automation_enabled_for_litellm": true,
+  "post_update_gate_backup": {
+    "backup": "/var/backups/litellm/20261018T174102Z",
+    "dump_bytes": 288197,
+    "sha256": "e23ff3c95e392de42465efa9ae4117dcac95acb59d1ab97c0667ccde77fe2617",
+    "tables": 98,
+    "rows": 370,
+    "restore_verified": true,
+    "app_image": "sha256:2858d054494686e122537948b33a4073d3dffd8ec3202c63e9f046637a791eef",
+    "db_image": "sha256:188ac51266eb2476c69f7a145ea50290e3b8d81285a3386197704d8ad677ba5a",
+    "production_db_id": "1d1b32a3f9f976809c30960fabadaa34403686bac3fe67c9faad72f667e0257e"
+  },
+  "gate_http_success_status": 200,
+  "migrations_successfully_applied": true,
+  "source_digest_pinned_after_wud_digest_update": true
+}

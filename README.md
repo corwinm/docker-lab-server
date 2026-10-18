@@ -14,7 +14,7 @@ These are the services currently configured and running on this server.
 - Portainer - Dashboard to view and manage running containers.
 - LiteLLM - LLM Proxy Server.
 - OpenWeb-UI - LLM Chat Client
-- WUD - Discord update notifications; automatic updates limited to cAdvisor and Node Exporter.
+- WUD - Discord update notifications; automatic updates limited to cAdvisor, Node Exporter and backup-gated LiteLLM.
 - Node Exporter and cAdvisor - Host and container metrics collected by the
   separate observability Pi.
 

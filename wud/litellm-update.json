@@ -1,0 +1,16 @@
+{
+  "update_api_status": 200,
+  "app_before": {
+    "id": "ec06120f98352b3360c70027c09affbf821c919636ac6e8ffa86397aef68b40a",
+    "image": "sha256:3b3f99817e8708fc5cb440ab3c020e710bf3f69ef603645322fd47995d4b3835",
+    "status": "running",
+    "health": "healthy"
+  },
+  "app_after": {
+    "id": "3a07bf3f5fa857e27b695a012d62c27b5c1d8fc8286959dd3067054a5a55ef46",
+    "image": "sha256:2858d054494686e122537948b33a4073d3dffd8ec3202c63e9f046637a791eef",
+    "status": "running",
+    "health": "healthy"
+  },
+  "fragment": "# Only this app image fragment is writable by WUD; DB and configuration stay outside.\nservices:\n  litellm:\n    image: ghcr.io/berriai/litellm:main-stable\n"
+}

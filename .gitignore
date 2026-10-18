@@ -10,3 +10,6 @@ volumes/
 # WUD runtime and automatic Compose backups
 wud/store/
 *.back
+
+# Python helper bytecode
+__pycache__/

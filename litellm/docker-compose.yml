@@ -4,7 +4,9 @@ services:
       context: .
       args:
         target: runtime
-    image: ghcr.io/berriai/litellm:main-stable
+    extends:
+      file: app/docker-compose.yml
+      service: litellm
     restart: always
     #########################################
     ## Uncomment these lines to start proxy with a config.yaml file ##
@@ -29,6 +31,7 @@ services:
       retries: 3     # Retry up to 3 times if health check fails
       start_period: 40s  # Wait 40 seconds after container start before beginning health checks
     labels:
+      - "wud.trigger.include=discord.home,dockercompose.litellm"
       - "traefik.enable=true"
       - "traefik.http.routers.litellm.rule=Host(`litellm.${DOMAIN}`)"
       - "traefik.http.routers.litellm.entrypoints=websecure"
