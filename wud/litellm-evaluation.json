@@ -1,0 +1,81 @@
+{
+  "decision": "blocked-no-production-update",
+  "installed_version": "1.82.3",
+  "candidate_version": "1.106.0",
+  "backup": {
+    "backup": "/var/backups/litellm/20261018T170550Z",
+    "dump_bytes": 184662,
+    "sha256": "f9b95a4970865257d907b139fff70cac55a94f664d54bb94bab976caf342118b",
+    "tables": 58,
+    "rows": 257,
+    "restore_verified": true,
+    "app_image": "sha256:3b3f99817e8708fc5cb440ab3c020e710bf3f69ef603645322fd47995d4b3835",
+    "db_image": "sha256:188ac51266eb2476c69f7a145ea50290e3b8d81285a3386197704d8ad677ba5a",
+    "production_db_id": "1d1b32a3f9f976809c30960fabadaa34403686bac3fe67c9faad72f667e0257e"
+  },
+  "candidate_rehearsal": {
+    "candidate": "ghcr.io/berriai/litellm@sha256:032817a17e58103834385125db8be1bdb20a5acb12c3cbf540b6705e1f6e2706",
+    "ready": true,
+    "running": true,
+    "exitcode": 0,
+    "/health/liveliness": {
+      "status": 200,
+      "bytes": 12
+    },
+    "/v1/models": {
+      "status": 200,
+      "bytes": 18008
+    },
+    "migration_log_lines": 219,
+    "error_log_lines": 3
+  },
+  "production_health": {
+    "/health/readiness": {
+      "status": 200,
+      "bytes": 214
+    },
+    "/health/liveliness": {
+      "status": 200,
+      "bytes": 12
+    },
+    "/v1/models": {
+      "status": 200,
+      "bytes": 10908
+    }
+  },
+  "production_app_and_postgres_ids_and_images_unchanged": true,
+  "compose_database_credentials_match_live": true,
+  "exporters_auto": true,
+  "proxy_exec": "0",
+  "litellm_auto_trigger_present": false,
+  "temporary_containers_remaining": [],
+  "wud_associations": {
+    "cadvisor": [
+      "discord.home",
+      "dockercompose.exporters"
+    ],
+    "litellm-db-1": [
+      "discord.home"
+    ],
+    "litellm-litellm-1": [
+      "discord.home"
+    ],
+    "litellm-prometheus-1": [
+      "discord.home"
+    ],
+    "node_exporter": [
+      "discord.home",
+      "dockercompose.exporters"
+    ],
+    "open-webui-openwebui-1": [
+      "discord.home"
+    ],
+    "portainer-portainer-1": [
+      "discord.home"
+    ],
+    "traefik": [
+      "discord.home"
+    ]
+  },
+  "monitored_count": 8
+}

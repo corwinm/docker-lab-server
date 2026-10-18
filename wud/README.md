@@ -33,3 +33,7 @@ Watchtower and ExcaliDash Compose definitions were removed from the repository. 
 WUD performed a real cAdvisor update from v0.60.5 to v0.60.6, persisted the Compose version, and accepted the healthy replacement. Node Exporter v1.12.1 was already current. Trigger association checks ensure only those two services receive the exporter updater. Both metrics endpoints and WUD health are verified after activation.
 
 On this Snap Docker host, `no-new-privileges` prevented the socket-proxy entrypoint from executing; the option was omitted after reproducing that failure. The isolated proxy network remains in place.
+
+## LiteLLM evaluation
+
+LiteLLM remains manual after a restored-database candidate rehearsal: its update applies schema migrations, and the current exec-denying proxy cannot run a fail-closed database backup pre-hook. No LiteLLM update label, trigger, or writable stack mount was enabled. See [the safety gate and recovery runbook](../litellm/README.md) and [sanitized execution evidence](litellm-evaluation.json).
