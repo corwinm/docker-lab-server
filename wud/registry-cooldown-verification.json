@@ -1,0 +1,594 @@
+{
+  "date": "2026-11-15",
+  "historicalRepoManifestStatus": 404,
+  "historicalPlatformManifestStatus": 404,
+  "currentTagStatus": 200,
+  "workaround": "pinned-source narrow LiteLLM historical-manifest 404 config-identity fallback",
+  "generatedSourceSha256": "1db4ba3fb5fc67b41cd13330d2fde287d321a2756c029b6e66742cf95e4f1a2d",
+  "scans": [
+    {
+      "name": "cadvisor",
+      "id": "577d6adb5806ed37839d197cb3b848dc21ea764c791d2891547c18d50723dd9f",
+      "image": {
+        "id": "sha256:d280a05f4391d4707f3d2407114e47083989c8dcfb1c6de976676620c2c0d1dd",
+        "registry": {
+          "name": "ghcr.public",
+          "url": "https://ghcr.io/v2"
+        },
+        "name": "google/cadvisor",
+        "tag": {
+          "value": "v0.60.6",
+          "semver": true
+        },
+        "digest": {
+          "watch": false,
+          "value": null,
+          "repo": "sha256:b8e7d1093144fd088f425ff003d75a4aa405de075db78dae3bc563730b1bd07a"
+        },
+        "architecture": "amd64",
+        "os": "linux",
+        "variant": null,
+        "created": "2026-09-18T22:46:43.181Z"
+      },
+      "result": {
+        "tag": "v0.60.6",
+        "digest": null,
+        "created": null,
+        "link": null
+      },
+      "error": null,
+      "delay": "48h",
+      "isCoolingDown": false,
+      "coolingDownUntil": null,
+      "updateAvailable": false
+    },
+    {
+      "name": "litellm-db-1",
+      "id": "1d1b32a3f9f976809c30960fabadaa34403686bac3fe67c9faad72f667e0257e",
+      "image": {
+        "id": "sha256:188ac51266eb2476c69f7a145ea50290e3b8d81285a3386197704d8ad677ba5a",
+        "registry": {
+          "name": "hub.public",
+          "url": "https://registry-1.docker.io/v2"
+        },
+        "name": "library/postgres",
+        "tag": {
+          "value": "16",
+          "semver": true
+        },
+        "digest": {
+          "watch": false,
+          "value": null,
+          "repo": "sha256:71e27bf60b70bded003791b5573f8b808365613f341df20ffcf0c1ed7bc13ddf"
+        },
+        "architecture": "amd64",
+        "os": "linux",
+        "variant": null,
+        "created": "2026-04-22T01:33:06.719Z"
+      },
+      "result": {
+        "tag": "18",
+        "digest": null,
+        "created": null,
+        "link": null
+      },
+      "error": null,
+      "delay": "48h",
+      "isCoolingDown": false,
+      "coolingDownUntil": null,
+      "updateAvailable": true
+    },
+    {
+      "name": "litellm-litellm-1",
+      "id": "c4f0b02338d3d942499cbf9d93c3a6f90d0bf8ab350f985f2c2f5512c8e7cfb9",
+      "image": {
+        "id": "sha256:c7cafa430f1079e934a41bea54910df49936d9238d32236eca3afaa2142965a0",
+        "registry": {
+          "name": "ghcr.public",
+          "url": "https://ghcr.io/v2"
+        },
+        "name": "berriai/litellm",
+        "tag": {
+          "value": "main-stable",
+          "semver": false
+        },
+        "digest": {
+          "watch": true,
+          "value": "sha256:1bbcb1443bc962e45f5aad53fe3d2c30600e0379715fb6c664cdd3ac126c339e",
+          "repo": "sha256:1bbcb1443bc962e45f5aad53fe3d2c30600e0379715fb6c664cdd3ac126c339e"
+        },
+        "architecture": "amd64",
+        "os": "linux",
+        "variant": null,
+        "created": "2026-10-21T11:06:09.250Z"
+      },
+      "result": {
+        "tag": "main-stable",
+        "digest": "sha256:192404922cf3ede22cfef2692a0f0e9915413c2d72e623b5d3cf0eabb0bc5eb9",
+        "created": "2026-11-12T01:27:10.886Z",
+        "link": null
+      },
+      "error": null,
+      "delay": "48h",
+      "isCoolingDown": false,
+      "coolingDownUntil": 1794619630886,
+      "updateAvailable": true
+    },
+    {
+      "name": "litellm-prometheus-1",
+      "id": "639602ca4c268d6e92ba9984d115ecdd2b2717fe9dfb4add5cd97daea069502a",
+      "image": {
+        "id": "sha256:232e2ff3a14b9112baec11036481e25097b41157f17e1f911a37118e7b288468",
+        "registry": {
+          "name": "hub.public",
+          "url": "https://registry-1.docker.io/v2"
+        },
+        "name": "prom/prometheus",
+        "tag": {
+          "value": "latest",
+          "semver": false
+        },
+        "digest": {
+          "watch": true,
+          "value": "sha256:3674db04d3640d2157de57f8679dbe8dbc10a673e6d63ec58d9430e34abbfe68",
+          "repo": "sha256:5550dc63da361dc30f6fe02ac0e4dfc736ededfef3c8d12a634db04a67824d78"
+        },
+        "architecture": "amd64",
+        "os": "linux",
+        "variant": null,
+        "created": "2026-04-13T12:34:36.298Z"
+      },
+      "result": {
+        "tag": "latest",
+        "digest": "sha256:89c1a644817e9ad70fa2af76c84898e327c1de7063735f962e8313b1e28672c3",
+        "created": "2026-11-05T15:43:10.325Z",
+        "link": null
+      },
+      "error": null,
+      "delay": "48h",
+      "isCoolingDown": false,
+      "coolingDownUntil": 1794066190325,
+      "updateAvailable": true
+    },
+    {
+      "name": "node_exporter",
+      "id": "522845f0302f4f4078cb9b1406442722f04970eddbc136f6222bcc2651e3de08",
+      "image": {
+        "id": "sha256:9bbbca8f5cb8e9bd1b835e8ec086b6df6d9a458d2d10ef1c97ea4a9a3ae7e54b",
+        "registry": {
+          "name": "hub.public",
+          "url": "https://registry-1.docker.io/v2"
+        },
+        "name": "prom/node-exporter",
+        "tag": {
+          "value": "v1.12.1",
+          "semver": true
+        },
+        "digest": {
+          "watch": false,
+          "value": null,
+          "repo": "sha256:1b4e4438faca4dd7e001dd445d161a4a2091b0fededa84093b3a8dfeae1f1be0"
+        },
+        "architecture": "amd64",
+        "os": "linux",
+        "variant": null,
+        "created": "2026-07-14T12:11:16.849Z"
+      },
+      "result": {
+        "tag": "v1.12.1",
+        "digest": null,
+        "created": null,
+        "link": null
+      },
+      "error": null,
+      "delay": "48h",
+      "isCoolingDown": false,
+      "coolingDownUntil": null,
+      "updateAvailable": false
+    },
+    {
+      "name": "open-webui-openwebui-1",
+      "id": "df16790d6fdd8dbaf6db362919617cd0671a7f6bafe3b01b6e62a32b7d01a3dd",
+      "image": {
+        "id": "sha256:b23bb1d639addcdd8c5d51854431d2691495440300c7125085baa7e0faf87615",
+        "registry": {
+          "name": "ghcr.public",
+          "url": "https://ghcr.io/v2"
+        },
+        "name": "open-webui/open-webui",
+        "tag": {
+          "value": "main",
+          "semver": false
+        },
+        "digest": {
+          "watch": true,
+          "value": "sha256:a1916b8dc645222c6ff14b4ed075c0b2ac39bfb9b63690ec81a3cd0312e224b8",
+          "repo": "sha256:c2e4723fdbca5de8f9f0529e22b78acf5bc312a88da730bed88860063d028fe8"
+        },
+        "architecture": "amd64",
+        "os": "linux",
+        "variant": null,
+        "created": "2026-04-24T10:00:03.548Z"
+      },
+      "result": {
+        "tag": "main",
+        "digest": "sha256:789c6ee992c41e363ac79f6a41945e94700c414a05b0335266f5e798f46b1fc3",
+        "created": "2026-11-08T23:52:21.112Z",
+        "link": null
+      },
+      "error": null,
+      "delay": "48h",
+      "isCoolingDown": false,
+      "coolingDownUntil": 1794354741112,
+      "updateAvailable": true
+    },
+    {
+      "name": "portainer-portainer-1",
+      "id": "26d03f9e88e063bad4189c74ba334e6024b84eb4bc8d2532413037f2c197f81c",
+      "image": {
+        "id": "sha256:a0a227bf03ddc8b88bbb74b1b84a8a7220c8fa95b122cbde2a7444f32dc30659",
+        "registry": {
+          "name": "hub.public",
+          "url": "https://registry-1.docker.io/v2"
+        },
+        "name": "portainer/portainer-ce",
+        "tag": {
+          "value": "2.0.0",
+          "semver": true
+        },
+        "digest": {
+          "watch": false,
+          "value": null,
+          "repo": "sha256:0ab9d25e9ac7b663a51afc6853875b2055d8812fcaf677d0013eba32d0bf0e0d"
+        },
+        "architecture": "amd64",
+        "os": "linux",
+        "variant": null,
+        "created": "2020-08-31T09:04:47.168Z"
+      },
+      "result": {
+        "tag": "2.45.3",
+        "digest": null,
+        "created": null,
+        "link": null
+      },
+      "error": null,
+      "delay": "48h",
+      "isCoolingDown": false,
+      "coolingDownUntil": null,
+      "updateAvailable": true
+    },
+    {
+      "name": "traefik",
+      "id": "206ac0a5070ad9f4ed3dd6695def772a596bb84e2ab31ffb85d1fda5c99bd7c3",
+      "image": {
+        "id": "sha256:c7884ffa7a8be9185718011b6ca075c8c6756e0104e5f6f432f72ae7a85fa8d2",
+        "registry": {
+          "name": "hub.public",
+          "url": "https://registry-1.docker.io/v2"
+        },
+        "name": "library/traefik",
+        "tag": {
+          "value": "v3.7.1",
+          "semver": true
+        },
+        "digest": {
+          "watch": false,
+          "value": null,
+          "repo": "sha256:6b9cbca6fac42ab0075f5437d8dc1685cfd188626d8d515839ea94f8b6271c42"
+        },
+        "architecture": "amd64",
+        "os": "linux",
+        "variant": null,
+        "created": "2026-05-11T21:38:23.706Z"
+      },
+      "result": {
+        "tag": "v3.7.19",
+        "digest": null,
+        "created": null,
+        "link": null
+      },
+      "error": null,
+      "delay": "48h",
+      "isCoolingDown": false,
+      "coolingDownUntil": null,
+      "updateAvailable": true
+    }
+  ],
+  "associations": {
+    "cadvisor": [
+      "discord.home",
+      "dockercompose.exporters"
+    ],
+    "litellm-db-1": [
+      "discord.home"
+    ],
+    "litellm-litellm-1": [
+      "discord.home",
+      "dockercompose.litellm"
+    ],
+    "litellm-prometheus-1": [
+      "discord.home"
+    ],
+    "node_exporter": [
+      "discord.home",
+      "dockercompose.exporters"
+    ],
+    "open-webui-openwebui-1": [
+      "discord.home"
+    ],
+    "portainer-portainer-1": [
+      "discord.home"
+    ],
+    "traefik": [
+      "discord.home"
+    ]
+  },
+  "triggersDuringVerification": [
+    {
+      "id": "discord.home",
+      "auto": true,
+      "includebydefault": null,
+      "mode": "batch",
+      "hooks": null
+    },
+    {
+      "id": "dockercompose.exporters",
+      "auto": false,
+      "includebydefault": false,
+      "mode": "batch",
+      "hooks": null
+    },
+    {
+      "id": "dockercompose.litellm",
+      "auto": false,
+      "includebydefault": false,
+      "mode": "batch",
+      "hooks": [
+        {
+          "type": "trigger",
+          "trigger": "http.litellmbackup",
+          "timeout": 510000,
+          "phase": "pre",
+          "target": "self"
+        }
+      ]
+    },
+    {
+      "id": "http.litellmbackup",
+      "auto": false,
+      "includebydefault": false,
+      "mode": "simple",
+      "hooks": null
+    }
+  ],
+  "watcherDelay": "48h",
+  "tests": {
+    "registryCases": 13,
+    "cooldownCases": 7,
+    "passed": 20
+  },
+  "nonWudContainerIdentityImageStateUnchanged": true,
+  "before": [
+    {
+      "name": "/litellm-litellm-1",
+      "id": "c4f0b02338d3d942499cbf9d93c3a6f90d0bf8ab350f985f2c2f5512c8e7cfb9",
+      "image": "sha256:c7cafa430f1079e934a41bea54910df49936d9238d32236eca3afaa2142965a0",
+      "status": "running"
+    },
+    {
+      "name": "/wud-wud-1",
+      "id": "6d8938282134f2e55b3a937a83a0d593702e187343752269f166813eaf8384ac",
+      "image": "sha256:4327833231394d676701d6170150f87066093e79e0c22e1c214a02f6918242bb",
+      "status": "running"
+    },
+    {
+      "name": "/cadvisor",
+      "id": "577d6adb5806ed37839d197cb3b848dc21ea764c791d2891547c18d50723dd9f",
+      "image": "sha256:d280a05f4391d4707f3d2407114e47083989c8dcfb1c6de976676620c2c0d1dd",
+      "status": "running"
+    },
+    {
+      "name": "/wud-socket-proxy-1",
+      "id": "bc742828d7f6e52bf8a774a106c4e7b5a3bba2e630cf102ef03a7f46652f20f8",
+      "image": "sha256:f2a4884c51becf0cc05a0564007f57e650966fa1b81b3f3703cca3212c85af0f",
+      "status": "running"
+    },
+    {
+      "name": "/node_exporter",
+      "id": "522845f0302f4f4078cb9b1406442722f04970eddbc136f6222bcc2651e3de08",
+      "image": "sha256:9bbbca8f5cb8e9bd1b835e8ec086b6df6d9a458d2d10ef1c97ea4a9a3ae7e54b",
+      "status": "running"
+    },
+    {
+      "name": "/watchtower-watchtower-1",
+      "id": "310fdfadee7a55a18fdab3ba27ff20aaeb131e85e88106c97d7331dd20999d8a",
+      "image": "sha256:e7dd50d07b86c380dd53caeb7778da052d1a8fc2c606644a419afa35e9f5691e",
+      "status": "exited"
+    },
+    {
+      "name": "/excalidash-excalidash-frontend-1",
+      "id": "cca33afa7683002d9b721212240c3413fa5deb6595afefac8da54d679be12933",
+      "image": "sha256:47b603842dd7a4efbf1315de38384a0bc52391542869ebe3f2808c40cb5c25be",
+      "status": "exited"
+    },
+    {
+      "name": "/excalidash-excalidash-backend-1",
+      "id": "9b9b8bc79687e09a05e5df1cf93967e9ce78d2e577d6f68871e9bd5b037cf9a6",
+      "image": "sha256:bdaea133f9cd5d29b128d846ec31c98a9f33eb455eceadaa6f4ea2d44526ea20",
+      "status": "exited"
+    },
+    {
+      "name": "/traefik",
+      "id": "206ac0a5070ad9f4ed3dd6695def772a596bb84e2ab31ffb85d1fda5c99bd7c3",
+      "image": "sha256:c7884ffa7a8be9185718011b6ca075c8c6756e0104e5f6f432f72ae7a85fa8d2",
+      "status": "running"
+    },
+    {
+      "name": "/open-webui-openwebui-1",
+      "id": "df16790d6fdd8dbaf6db362919617cd0671a7f6bafe3b01b6e62a32b7d01a3dd",
+      "image": "sha256:b23bb1d639addcdd8c5d51854431d2691495440300c7125085baa7e0faf87615",
+      "status": "running"
+    },
+    {
+      "name": "/litellm-db-1",
+      "id": "1d1b32a3f9f976809c30960fabadaa34403686bac3fe67c9faad72f667e0257e",
+      "image": "sha256:188ac51266eb2476c69f7a145ea50290e3b8d81285a3386197704d8ad677ba5a",
+      "status": "running"
+    },
+    {
+      "name": "/litellm-prometheus-1",
+      "id": "639602ca4c268d6e92ba9984d115ecdd2b2717fe9dfb4add5cd97daea069502a",
+      "image": "sha256:232e2ff3a14b9112baec11036481e25097b41157f17e1f911a37118e7b288468",
+      "status": "running"
+    },
+    {
+      "name": "/portainer-portainer-1",
+      "id": "26d03f9e88e063bad4189c74ba334e6024b84eb4bc8d2532413037f2c197f81c",
+      "image": "sha256:a0a227bf03ddc8b88bbb74b1b84a8a7220c8fa95b122cbde2a7444f32dc30659",
+      "status": "running"
+    }
+  ],
+  "after": [
+    {
+      "name": "/wud-wud-1",
+      "id": "fbbf840acebbaba9eccac345be161fdd33cc8687b1f0243f3b883d0a05399fff",
+      "image": "sha256:4327833231394d676701d6170150f87066093e79e0c22e1c214a02f6918242bb",
+      "status": "running"
+    },
+    {
+      "name": "/litellm-litellm-1",
+      "id": "c4f0b02338d3d942499cbf9d93c3a6f90d0bf8ab350f985f2c2f5512c8e7cfb9",
+      "image": "sha256:c7cafa430f1079e934a41bea54910df49936d9238d32236eca3afaa2142965a0",
+      "status": "running"
+    },
+    {
+      "name": "/cadvisor",
+      "id": "577d6adb5806ed37839d197cb3b848dc21ea764c791d2891547c18d50723dd9f",
+      "image": "sha256:d280a05f4391d4707f3d2407114e47083989c8dcfb1c6de976676620c2c0d1dd",
+      "status": "running"
+    },
+    {
+      "name": "/wud-socket-proxy-1",
+      "id": "bc742828d7f6e52bf8a774a106c4e7b5a3bba2e630cf102ef03a7f46652f20f8",
+      "image": "sha256:f2a4884c51becf0cc05a0564007f57e650966fa1b81b3f3703cca3212c85af0f",
+      "status": "running"
+    },
+    {
+      "name": "/node_exporter",
+      "id": "522845f0302f4f4078cb9b1406442722f04970eddbc136f6222bcc2651e3de08",
+      "image": "sha256:9bbbca8f5cb8e9bd1b835e8ec086b6df6d9a458d2d10ef1c97ea4a9a3ae7e54b",
+      "status": "running"
+    },
+    {
+      "name": "/watchtower-watchtower-1",
+      "id": "310fdfadee7a55a18fdab3ba27ff20aaeb131e85e88106c97d7331dd20999d8a",
+      "image": "sha256:e7dd50d07b86c380dd53caeb7778da052d1a8fc2c606644a419afa35e9f5691e",
+      "status": "exited"
+    },
+    {
+      "name": "/excalidash-excalidash-frontend-1",
+      "id": "cca33afa7683002d9b721212240c3413fa5deb6595afefac8da54d679be12933",
+      "image": "sha256:47b603842dd7a4efbf1315de38384a0bc52391542869ebe3f2808c40cb5c25be",
+      "status": "exited"
+    },
+    {
+      "name": "/excalidash-excalidash-backend-1",
+      "id": "9b9b8bc79687e09a05e5df1cf93967e9ce78d2e577d6f68871e9bd5b037cf9a6",
+      "image": "sha256:bdaea133f9cd5d29b128d846ec31c98a9f33eb455eceadaa6f4ea2d44526ea20",
+      "status": "exited"
+    },
+    {
+      "name": "/traefik",
+      "id": "206ac0a5070ad9f4ed3dd6695def772a596bb84e2ab31ffb85d1fda5c99bd7c3",
+      "image": "sha256:c7884ffa7a8be9185718011b6ca075c8c6756e0104e5f6f432f72ae7a85fa8d2",
+      "status": "running"
+    },
+    {
+      "name": "/open-webui-openwebui-1",
+      "id": "df16790d6fdd8dbaf6db362919617cd0671a7f6bafe3b01b6e62a32b7d01a3dd",
+      "image": "sha256:b23bb1d639addcdd8c5d51854431d2691495440300c7125085baa7e0faf87615",
+      "status": "running"
+    },
+    {
+      "name": "/litellm-db-1",
+      "id": "1d1b32a3f9f976809c30960fabadaa34403686bac3fe67c9faad72f667e0257e",
+      "image": "sha256:188ac51266eb2476c69f7a145ea50290e3b8d81285a3386197704d8ad677ba5a",
+      "status": "running"
+    },
+    {
+      "name": "/litellm-prometheus-1",
+      "id": "639602ca4c268d6e92ba9984d115ecdd2b2717fe9dfb4add5cd97daea069502a",
+      "image": "sha256:232e2ff3a14b9112baec11036481e25097b41157f17e1f911a37118e7b288468",
+      "status": "running"
+    },
+    {
+      "name": "/portainer-portainer-1",
+      "id": "26d03f9e88e063bad4189c74ba334e6024b84eb4bc8d2532413037f2c197f81c",
+      "image": "sha256:a0a227bf03ddc8b88bbb74b1b84a8a7220c8fa95b122cbde2a7444f32dc30659",
+      "status": "running"
+    }
+  ],
+  "proxyExec": "0",
+  "backupGateActive": true,
+  "tls": {
+    "host": "litellm.pmx1.cwin.dev",
+    "notBefore": "2026-07-18T22:52:20Z",
+    "notAfter": "2026-10-16T22:52:19Z",
+    "verifiedHttps": "fails: expired certificate",
+    "renewalError": "Cloudflare 403/9109 Invalid access token",
+    "readOnlyTokenVerification": {
+      "httpStatus": 401,
+      "code": 1000,
+      "message": "Invalid API Token"
+    },
+    "sourceTokenMatchesRunning": true,
+    "changed": false
+  },
+  "finalTriggers": [
+    {
+      "id": "discord.home",
+      "auto": true,
+      "mode": "batch",
+      "includebydefault": null,
+      "hooks": null
+    },
+    {
+      "id": "dockercompose.exporters",
+      "auto": true,
+      "mode": "batch",
+      "includebydefault": false,
+      "hooks": null
+    },
+    {
+      "id": "dockercompose.litellm",
+      "auto": true,
+      "mode": "batch",
+      "includebydefault": false,
+      "hooks": [
+        {
+          "type": "trigger",
+          "trigger": "http.litellmbackup",
+          "timeout": 510000,
+          "phase": "pre",
+          "target": "self"
+        }
+      ]
+    },
+    {
+      "id": "http.litellmbackup",
+      "auto": false,
+      "mode": "simple",
+      "includebydefault": false,
+      "hooks": null
+    }
+  ],
+  "finalGetOnlyNoApplicationUpdates": true,
+  "healthProbes": {
+    "litellmReadiness": 200,
+    "litellmLiveliness": 200,
+    "nodeExporterMetrics": 200,
+    "cadvisorMetrics": 200,
+    "allThreeDockerHealth": "healthy"
+  }
+}

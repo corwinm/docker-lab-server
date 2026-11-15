@@ -1,4 +1,4 @@
 # Only this app image fragment is writable by WUD; DB and configuration stay outside.
 services:
   litellm:
-    image: ghcr.io/berriai/litellm:main-stable@sha256:032817a17e58103834385125db8be1bdb20a5acb12c3cbf540b6705e1f6e2706
+    image: ghcr.io/berriai/litellm:main-stable

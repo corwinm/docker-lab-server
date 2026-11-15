@@ -42,6 +42,7 @@ services:
       TZ: America/Los_Angeles
       WUD_WATCHER_VM_HOST: socket-proxy
       WUD_WATCHER_VM_PORT: "2375"
+      WUD_WATCHER_VM_DELAY: "48h"
       WUD_WATCHER_VM_CRON: "0 * * * *"
       WUD_WATCHER_VM_WATCHALL: "false"
       WUD_WATCHER_VM_WATCHATSTART: "true"
@@ -59,7 +60,7 @@ services:
       WUD_TRIGGER_DOCKERCOMPOSE_EXPORTERS_FILE: "/stacks/monitoring/docker-compose.yml"
       WUD_TRIGGER_DOCKERCOMPOSE_LITELLM_INCLUDEBYDEFAULT: "false"
       WUD_TRIGGER_DOCKERCOMPOSE_LITELLM_AUTO: "true"
-      WUD_TRIGGER_DOCKERCOMPOSE_LITELLM_MODE: "simple"
+      WUD_TRIGGER_DOCKERCOMPOSE_LITELLM_MODE: "batch"
       WUD_TRIGGER_DOCKERCOMPOSE_LITELLM_BACKUP: "true"
       WUD_TRIGGER_DOCKERCOMPOSE_LITELLM_ROLLBACK: "true"
       WUD_TRIGGER_DOCKERCOMPOSE_LITELLM_ROLLBACKWINDOW: "300000"
@@ -81,6 +82,7 @@ services:
       WUD_TRIGGER_DISCORD_HOME_BOTUSERNAME: WUD
       WUD_TRIGGER_DISCORD_HOME_CARDLABEL: Docker VM — scoped auto-updates
     volumes:
+      - ./Docker.js.back:/home/node/app/dist/watchers/providers/docker/Docker.js:ro
       - ./store:/store
       - ../monitoring:/stacks/monitoring
       - ../litellm/app:/stacks/litellm-app

@@ -1,6 +1,16 @@
 # LiteLLM backup-gated updates
 
-## Deployed decision (2026-10-18)
+## Current deployment (2026-11-15)
+
+Production remains **1.107.0**, from a verified unattended October update. The app
+fragment currently uses `main-stable`, as persisted by WUD; it is not pinned to
+the old digest mentioned in the historical rollout below. The installed local
+image ID is `sha256:c7cafa430f1079e934a41bea54910df49936d9238d32236eca3afaa2142965a0`.
+GHCR removed its historical index, so retained local images/backups are important.
+See [registry workaround, native 48h image-age delay and TLS blocker](../wud/README.md#registry-retention-workaround-and-native-48h-delay-2026-11-15).
+No app/database update was performed during this maintenance.
+
+## Historical deployed decision (2026-10-18)
 
 Production LiteLLM was updated through WUD from **1.82.3 to 1.106.0** after an isolated migration rehearsal, authenticated backup/restore proof, and a real fail-closed WUD transaction test. The app-only image fragment is pinned to `main-stable@sha256:032817a17e58103834385125db8be1bdb20a5acb12c3cbf540b6705e1f6e2706`. PostgreSQL remains on its existing PostgreSQL 16 image and container; Prometheus and all unapproved services are unchanged.
 

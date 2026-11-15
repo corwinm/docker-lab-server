@@ -41,3 +41,69 @@ The approved app-only rollout completed through WUD from 1.82.3 to 1.106.0. `doc
 A genuine available update returned HTTP 500 with the gate stopped; every container ID/image/state and the image fragment remained identical. After gate restart, a fresh backup preceded a real successful update. Readiness, liveliness, authenticated model listing and Docker health passed, with no provider inference. The source image fragment was explicitly pinned to the deployed immutable digest after the first digest-only update retained its floating tag. WUD never commits or pushes Git changes.
 
 Public HTTPS acceptance is not green: the certificate is expired. TLS verification was not bypassed and Traefik was unchanged. PostgreSQL reports an existing collation mismatch. See [gate and DB-plus-image recovery](../litellm/README.md), [rollout evidence](litellm-rollout.json), [negative transaction](litellm-negative.json), [successful update](litellm-update.json) and [prior rehearsal](litellm-evaluation.json).
+
+## Registry retention workaround and native 48h delay (2026-11-15)
+
+The installed LiteLLM 1.107.0 image remains unchanged (local image ID
+`sha256:c7cafa430f1079e934a41bea54910df49936d9238d32236eca3afaa2142965a0`).
+Its historical GHCR index and platform manifests now return HTTP 404, while the
+current `main-stable` tag resolves. WUD 9.3.0 otherwise aborts discovery when it
+tries to resolve that deleted installed index. This is not an application outage.
+
+`build-scanner-override.py` generates ignored `Docker.js.back` from the **locally
+installed pinned WUD image**, validates its exact source SHA-256, and applies one
+narrow scanner change. The generated file is mounted read-only into WUD. Rebuild
+it before recreating WUD on another host:
+
+```sh
+cd wud
+python3 build-scanner-override.py /snap/bin/docker
+/snap/bin/docker compose config --quiet
+/snap/bin/docker compose up -d --no-deps --pull never wud
+/snap/bin/docker exec -i wud-wud-1 node < test-scanner-override.js
+```
+
+Only a 404 resolving **the installed LiteLLM index** on `ghcr.public` invokes the
+workaround. It fetches the successfully resolved candidate's platform manifest
+and compares its config digest with Docker's installed image ID. Equal config
+identities are current; different identities retain the old repo digest as the
+local comparison identity. The result still contains the candidate **manifest**
+digest, never a config digest. Other images, candidate failures, auth failures,
+rate limiting and unverifiable identities still fail discovery. No remote image
+is pulled or application container recreated by discovery. This is a local
+version-bound workaround, not an upstream WUD fix; review/remove it on WUD upgrade.
+
+The watcher now has `WUD_WATCHER_VM_DELAY=48h`; all eight monitored entries inherit
+it, with no label overrides. Native WUD measures **candidate image creation age**,
+not publication time or time first seen. Missing or invalid candidate timestamps
+**do not cool down**; this is not a fail-closed quarantine or a vulnerability scan.
+It suppresses update availability and associated notifications during cooling.
+The current LiteLLM candidate was created `2026-11-12T01:27:10.886Z`, so its 48h
+window ended `2026-11-14T01:27:10.886Z`: it is already eligible, not cooling.
+Deterministic tests of the actual installed WUD model prove suppression before
+48h, eligibility at/after 48h, unchanged candidates, and missing/invalid dates.
+
+During maintenance both Compose updater triggers were temporarily AUTO=false.
+They return to AUTO=true only after scoped associations, discovery, delay tests
+and backup-gate health are checked. The exact automatic allowlist remains
+`cadvisor`, `node_exporter`, `litellm-litellm-1`; other five monitored containers
+remain notification-only. LiteLLM's source now explicitly selects the already
+effective persisted `batch` mode; its synchronous backup hook is unchanged.
+
+WUD's unattended October update persisted `main-stable` in the writable app
+fragment. That deliberate drift is retained and committed; do not pin it to the
+newly discovered candidate or to the now-deleted historical index. A floating
+source tag is not an immutable recovery guarantee. Recover using the retained
+local image ID and private DB-plus-image backup procedure.
+
+### Public TLS blocker
+
+The presented LiteLLM certificate expired `2026-10-16T22:52:19Z`. Normal verified
+HTTPS still fails. Traefik logs show Cloudflare DNS-challenge renewal failure
+(403/9109 invalid access token); a read-only Cloudflare token verification also
+returned HTTP 401 / code 1000, `Invalid API Token`. The ignored source token and
+running token match, so this is not stale Compose environment drift. Renewal
+requires a valid authorized Cloudflare token with the existing DNS challenge
+permissions. No token rotation, ACME store modification, routing restart, image
+upgrade, or TLS-verification bypass for application acceptance was attempted.
+See `registry-cooldown-verification.json` for sanitized maintenance evidence.
